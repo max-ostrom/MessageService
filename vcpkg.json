@@ -1,0 +1,16 @@
+{
+  "dependencies": [
+    "protobuf",
+	"boost"
+  ],
+	"overrides": [
+		{
+			"name": "libffi",
+			"version": "3.3#9"
+		},
+		{
+			"name": "python3",
+			"version": "3.10.2#0"
+		}
+	]
+}
