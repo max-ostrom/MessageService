@@ -1,4 +1,4 @@
 syntax = "proto2";
 message Test {
-    repeated int32 id = 1;
+  repeated int32 ids = 1;
 }
