@@ -1,6 +1,4 @@
-﻿/*
-Copyright 2024 @Mostrome
-*/
+﻿// Copyright 2024 @Mostrome
 
 #include <boost/asio.hpp>
 #include <iostream>
