@@ -1,19 +1,24 @@
-﻿#include <boost/asio.hpp>
+﻿/*
+Copyright 2024 @Mostrome
+*/
+
+#include <boost/asio.hpp>
 #include <iostream>
 
 #define PORT_NUMBER 20565
 #define SERVER_IP_ADRESS_STR "127.0.0.1"
-using namespace boost::asio::ip;
-int main(int argc, char* argv[]) {
+
+namespace bst = boost::asio::ip;
+
+int main(int argc, char *argv[]) {
   try {
-    const boost::asio::ip::address addr =
-        address::from_string(SERVER_IP_ADRESS_STR);
-    tcp::endpoint endPoint(addr, PORT_NUMBER);
+    const bst::address addr = bst::address::from_string(SERVER_IP_ADRESS_STR);
+    bst::tcp::endpoint endPoint(addr, PORT_NUMBER);
     boost::asio::io_context io_context;
 
-    tcp::resolver resolver(io_context);
-    tcp::resolver::results_type endpoints = resolver.resolve(endPoint);
-    tcp::socket socket(io_context);
+    bst::tcp::resolver resolver(io_context);
+    bst::tcp::resolver::results_type endpoints = resolver.resolve(endPoint);
+    bst::tcp::socket socket(io_context);
     boost::asio::connect(socket, endpoints);
 
     while (true) {
@@ -29,7 +34,7 @@ int main(int argc, char* argv[]) {
 
       std::cout.write(buf.data(), len);
     }
-  } catch (std::exception& e) {
+  } catch (std::exception &e) {
     std::cerr << e.what() << std::endl;
   }
 
